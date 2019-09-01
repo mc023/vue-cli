@@ -10,13 +10,22 @@ import Vuex from 'vuex'
 //import NProgress from 'nprogress'
 //import 'nprogress/nprogress.css'
 import routes from './routes'
-import Mock from './mock'
-Mock.bootstrap();
+
+//禁用mock
+//import Mock from './mock'
+//Mock.bootstrap();
 import 'font-awesome/css/font-awesome.min.css'
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(Vuex)
+
+// 引用axios，并设置基础URL为后端服务api地址
+var axios = require('axios')
+axios.defaults.baseURL = 'http://localhost:4000/services'  //对应后端网关统一地址
+// 将API方法绑定到全局  /plat/login
+Vue.prototype.$http = axios
+Vue.config.productionTip = false
 
 //NProgress.configure({ showSpinner: false });
 
@@ -31,6 +40,7 @@ router.beforeEach((to, from, next) => {
   }
   let user = JSON.parse(sessionStorage.getItem('user'));
   if (!user && to.path != '/login') {
+    console.log(123)
     next({ path: '/login' })
   } else {
     next()

@@ -27,23 +27,23 @@ let routes = [
     {
         path: '/',
         component: Home,
-        name: '导航一',
+        name: '导航1',
         iconCls: 'el-icon-message',//图标样式class
         children: [
-            { path: '/main', component: Main, name: '主页', hidden: true },
-            { path: '/table', component: Table, name: 'Table' },
-            { path: '/form', component: Form, name: 'Form' },
-            { path: '/user', component: user, name: '列表' },
+            { path: '/main', component: Main, name: '1', hidden: true },
+            { path: '/table', component: Table, name: '2' },
+            { path: '/form', component: Form, name: '3' },
+            { path: '/user', component: user, name: '4' },
         ]
     },
     {
         path: '/',
         component: Home,
-        name: '导航二',
+        name: '导航2',
         iconCls: 'fa fa-id-card-o',
         children: [
-            { path: '/page4', component: Page4, name: '页面4' },
-            { path: '/page5', component: Page5, name: '页面5' }
+            { path: '/page4', component: Page4, name: '2' },
+            { path: '/page5', component: Page5, name: '6' }
         ]
     },
     {
